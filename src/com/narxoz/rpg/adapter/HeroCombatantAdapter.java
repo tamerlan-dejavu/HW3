@@ -17,7 +17,6 @@ public class HeroCombatantAdapter implements Combatant {
 
     @Override
     public int getAttackPower() {
-        // TODO: translate hero power to combat attack
         return hero.getPower();
     }
 
@@ -29,5 +28,19 @@ public class HeroCombatantAdapter implements Combatant {
     @Override
     public boolean isAlive() {
         return hero.isAlive();
+    }
+
+    @Override
+    public int getCurrentHealth() {
+        return hero.getHealth();
+    }
+    
+    @Override
+    public int getMaxHealth() {
+        return hero.getMaxHealth();
+    }
+    
+    public Hero getHero() {
+        return hero;
     }
 }

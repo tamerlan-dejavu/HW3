@@ -3,6 +3,7 @@ package com.narxoz.rpg.adapter;
 import com.narxoz.rpg.battle.Combatant;
 import com.narxoz.rpg.enemy.Enemy;
 
+
 public class EnemyCombatantAdapter implements Combatant {
     private final Enemy enemy;
 
@@ -16,8 +17,7 @@ public class EnemyCombatantAdapter implements Combatant {
     }
 
     @Override
-    public int getAttackPower() {
-        // TODO: translate enemy damage to combat attack                                                                                                        
+    public int getAttackPower() {                                                                                                      
         return enemy.getDamage();
     }
 
@@ -29,5 +29,14 @@ public class EnemyCombatantAdapter implements Combatant {
     @Override
     public boolean isAlive() {
         return !enemy.isDefeated();
+    }
+    @Override
+    public int getCurrentHealth() {
+        return enemy.getHealth();  
+    }
+    
+    @Override
+    public int getMaxHealth() {
+        return enemy.getMaxHealth(); 
     }
 }

@@ -1,14 +1,18 @@
-package com.narxoz.rpg.enemy;
+package com.narxoz.rpg.enemy.basic;
+
+import com.narxoz.rpg.enemy.Enemy;
 
 public class BasicEnemy implements Enemy {
-    private final String title;
-    private final int damage;
+    private String title;
+    private int damage;
     private int health;
+    private int maxHealth;
 
     public BasicEnemy(String title, int damage, int health) {
         this.title = title;
         this.damage = damage;
         this.health = health;
+        this.maxHealth = health;
     }
 
     @Override
@@ -23,7 +27,6 @@ public class BasicEnemy implements Enemy {
 
     @Override
     public void applyDamage(int amount) {
-        // TODO: enforce min 0
         health -= amount;
         if (health < 0) {
             health = 0;
@@ -35,7 +38,13 @@ public class BasicEnemy implements Enemy {
         return health <= 0;
     }
 
+    @Override
     public int getHealth() {
         return health;
+    }
+    
+    @Override
+    public int getMaxHealth() {
+        return maxHealth;
     }
 }

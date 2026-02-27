@@ -1,15 +1,18 @@
-package com.narxoz.rpg.hero;
+package com.narxoz.rpg.hero.basic;
 
-public class Mage implements Hero {
-    private final String name;
-    private final int power;
+import com.narxoz.rpg.hero.Hero;
+
+public class BasicHero implements Hero {
+    private String name;
+    private int power;
     private int health;
+    private int maxHealth;
 
-    public Mage(String name) {
+    public BasicHero(String name, int power, int health) {
         this.name = name;
-        // TODO: tune stats if needed
-        this.power = 25;
-        this.health = 80;
+        this.power = power;
+        this.health = health;
+        this.maxHealth = health;
     }
 
     @Override
@@ -24,7 +27,6 @@ public class Mage implements Hero {
 
     @Override
     public void receiveDamage(int amount) {
-        // TODO: enforce min 0
         health -= amount;
         if (health < 0) {
             health = 0;
@@ -36,7 +38,13 @@ public class Mage implements Hero {
         return health > 0;
     }
 
+    @Override
     public int getHealth() {
         return health;
+    }
+    
+    @Override
+    public int getMaxHealth() {
+        return maxHealth;
     }
 }
